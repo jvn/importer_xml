@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120125122330) do
+ActiveRecord::Schema.define(:version => 20120125182431) do
+
+  create_table "import_jobs", :force => true do |t|
+    t.string   "name"
+    t.string   "customer"
+    t.string   "filename"
+    t.integer  "status"
+    t.integer  "konv_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "leads", :force => true do |t|
     t.string   "Firmanavn"

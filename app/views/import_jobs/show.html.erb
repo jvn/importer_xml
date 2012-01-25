@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @import_job.name %>
+</p>
+
+<p>
+  <b>Customer:</b>
+  <%= @import_job.customer %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @import_job.status %>
+</p>
+
+<p>
+  <b>Konv:</b>
+  <%= @import_job.konv_id %>
+</p>
+
+<img src= " <%= @import_job.filename %> " alt="Smiley face" height="42" width="42" />
+
+<%= link_to 'Edit', edit_import_job_path(@import_job) %> |
+<%= link_to 'Back', import_jobs_path %>
