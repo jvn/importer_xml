@@ -10,6 +10,7 @@ ImporterXml::Application.routes.draw do
   resources :users
 
   match "importer" => "leads#csv"
+  match "importere" => "import_jobs#csv"
 
   #match ':leads(/:csv)'
 
