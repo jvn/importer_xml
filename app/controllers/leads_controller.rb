@@ -29,7 +29,7 @@ class LeadsController < ApplicationController
     @Naste_kontakt = 22
     @Kommentarer_og_noter = 23
 
-    csv_text = File.read('godslisten.csv')
+    csv_text = File.read('kort_godsliste.csv')
     csv = CSV.parse(csv_text, :headers => true)
     csv.each do |row|
       #row = row.to_hash.with_indifferent_access
