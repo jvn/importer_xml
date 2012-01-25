@@ -1,4 +1,8 @@
 ImporterXml::Application.routes.draw do
+  resources :import_defs
+
+  resources :import_jobs
+
   root :to => 'leads#index'
 
   resources :leads

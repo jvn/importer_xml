@@ -1,0 +1,36 @@
+<%= form_for(@import_job) do |f| %>
+  <% if @import_job.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@import_job.errors.count, "error") %> prohibited this import_job from being saved:</h2>
+
+      <ul>
+      <% @import_job.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+    <p>
+      <%= f.file_field :filename %>
+    </p>
+  <div class="field">
+    <%= f.label :customer %><br />
+    <%= f.text_field :customer %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br />
+    <%= f.number_field :status %>
+  </div>
+  <div class="field">
+    <%= f.label :konv_id %><br />
+    <%= f.number_field :konv_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,25 @@
+<%= form_for(@import_def) do |f| %>
+  <% if @import_def.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@import_def.errors.count, "error") %> prohibited this import_def from being saved:</h2>
+
+      <ul>
+      <% @import_def.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :headline %><br />
+    <%= f.text_field :headline %>
+  </div>
+  <div class="field">
+    <%= f.label :field %><br />
+    <%= f.text_field :field %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
