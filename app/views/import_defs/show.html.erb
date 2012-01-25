@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Headline:</b>
+  <%= @import_def.headline %>
+</p>
+
+<p>
+  <b>Field:</b>
+  <%= @import_def.field %>
+</p>
+
+
+<%= link_to 'Edit', edit_import_def_path(@import_def) %> |
+<%= link_to 'Back', import_defs_path %>
