@@ -3,7 +3,7 @@ class ImportJobsController < ApplicationController
   # GET /import_jobs.json
   def csv
     require 'csv'
-    @import_job = ImportJob.find_by_id(:params[:nyid])
+    @import_job = ImportJob.find_by_id(params[:nyid])
     @Firmanavn = 0
     @Adresse = 1
     @Postnr = 2
@@ -28,7 +28,6 @@ class ImportJobsController < ApplicationController
     @Milepalsstatus = 21
     @Naste_kontakt = 22
     @Kommentarer_og_noter = 23
-    logger.info('HALLO')
     logger.info(params[:nyid])
 
     csv_text = File.read('kort_godsliste.csv')
@@ -63,6 +62,7 @@ class ImportJobsController < ApplicationController
       @ny.Kommentarer_og_noter = row[@Kommentarer_og_noter]
       @ny.save
       logger.info (@ny.to_yaml)
+
     end
 
 
