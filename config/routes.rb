@@ -1,4 +1,6 @@
 ImporterXml::Application.routes.draw do
+  resources :verifications
+
   resources :import_defs
 
   resources :import_jobs

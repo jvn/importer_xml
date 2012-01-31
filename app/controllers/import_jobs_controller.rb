@@ -28,12 +28,15 @@ class ImportJobsController < ApplicationController
     @Milepalsstatus = 21
     @Naste_kontakt = 22
     @Kommentarer_og_noter = 23
+    logger.info('HALLOOOOOOOOOOOOOOOOOOOOOOO1')
     logger.info(params[:nyid])
+    logger.info(@import_job.filename)
 
-    csv_text = File.read('kort_godsliste.csv')
+    csv_text = File.read(Rails.root.join ('public' + @import_job.filename.to_s))
+    logger.info('HALLOOOOOOOOOOOOOOOOOOOOOOO')
     csv = CSV.parse(csv_text, :headers => true)
     csv.each do |row|
-      #row = row.to_hash.with_indifferent_access
+      #row = row.to_hash.with_indifferent_access      +
       @ny = Lead.new
       @ny.Firmanavn = row[@Firmanavn]
       logger.info(row)
@@ -64,13 +67,13 @@ class ImportJobsController < ApplicationController
       logger.info (@ny.to_yaml)
 
     end
-
+     redirect_to :controller => 'verifications', :action => 'show', :id => @ny.id
 
 
 
       #Lead.create!(row.to_hash.symbolize_keys)
     #end
-    redirect_to :root
+    #redirect_to :root
   end
 
   def index

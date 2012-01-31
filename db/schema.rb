@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120125184726) do
+ActiveRecord::Schema.define(:version => 20120131181550) do
 
   create_table "import_defs", :force => true do |t|
     t.string   "headline"
@@ -60,6 +60,35 @@ ActiveRecord::Schema.define(:version => 20120125184726) do
   end
 
   create_table "users", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "verifications", :force => true do |t|
+    t.string   "Firmanavn"
+    t.string   "Adresse"
+    t.string   "Postnr"
+    t.integer  "Telefon"
+    t.string   "Primar_branche"
+    t.string   "Email"
+    t.string   "Tilladelse_til"
+    t.integer  "Antal_tilladelser"
+    t.string   "DTL_Regioner"
+    t.integer  "Antal_biler"
+    t.integer  "Antal_chaufforer"
+    t.string   "Kunde"
+    t.string   "Konkurrent"
+    t.string   "Dorcanvas"
+    t.string   "Telefoncanvas_EGO"
+    t.string   "Telefoncanvas_outsourcet"
+    t.string   "M1_Kontakt_etableret"
+    t.string   "M2_Mode_booket"
+    t.string   "M3_Mode_gennemfort"
+    t.string   "M4_Aftale_indgaet"
+    t.string   "M5_Deltager_booket"
+    t.string   "Milepalsstatus"
+    t.string   "Naste_kontakt"
+    t.string   "Kommentarer_og_noter"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
