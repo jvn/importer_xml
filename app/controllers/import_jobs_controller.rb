@@ -3,7 +3,7 @@ class ImportJobsController < ApplicationController
   # GET /import_jobs.json
   def csv
     require 'csv'
-    @import_job = ImportJob.find_by_id(:params[:nyid])
+    @import_job = ImportJob.find_by_id(params[:nyid])
     @Firmanavn = 0
     @Adresse = 1
     @Postnr = 2
@@ -28,13 +28,14 @@ class ImportJobsController < ApplicationController
     @Milepalsstatus = 21
     @Naste_kontakt = 22
     @Kommentarer_og_noter = 23
-    logger.info('HALLO')
+    logger.info('HALLOOOOOOOOOOOOOOOOOOOOOOO')
     logger.info(params[:nyid])
+    logger.info(@import_job.filename)
 
-    csv_text = File.read('kort_godsliste.csv')
+    csv_text = File.read(Rails.root.join ('public' + @import_job.filename.to_s))
     csv = CSV.parse(csv_text, :headers => true)
     csv.each do |row|
-      #row = row.to_hash.with_indifferent_access
+      #row = row.to_hash.with_indifferent_access      +
       @ny = Lead.new
       @ny.Firmanavn = row[@Firmanavn]
       logger.info(row)
