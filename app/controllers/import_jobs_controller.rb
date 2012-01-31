@@ -37,7 +37,7 @@ class ImportJobsController < ApplicationController
     csv = CSV.parse(csv_text, :headers => true)
     csv.each do |row|
       #row = row.to_hash.with_indifferent_access      +
-      @ny = Lead.new
+      @ny = Verification.new
       @ny.Firmanavn = row[@Firmanavn]
       logger.info(row)
       @ny.Adresse = row[@Adresse]
@@ -67,7 +67,7 @@ class ImportJobsController < ApplicationController
       logger.info (@ny.to_yaml)
 
     end
-     redirect_to :controller => 'verifications', :action => 'show', :id => @ny.id
+     redirect_to :controller => 'verifications', :action => 'index'
 
 
 

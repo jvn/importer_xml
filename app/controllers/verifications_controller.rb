@@ -1,6 +1,23 @@
 class VerificationsController < ApplicationController
   # GET /verifications
   # GET /verifications.json
+
+  def accept
+    @verifications = Verification.all
+    @verifications.each do |verif|
+
+      @ny = Lead.new
+      @ny.Firmanavn = verif.Firmanavn
+      @ny.save
+      verif.destroy
+    end
+      redirect_to leads_path
+  end
+
+  def afvis
+    Verification.destroy_all
+    redirect_to leads_path
+  end
   def index
     @verifications = Verification.all
 
@@ -13,7 +30,7 @@ class VerificationsController < ApplicationController
   # GET /verifications/1
   # GET /verifications/1.json
   def show
-    @verification = Verification.find(params[:id])
+    @lead = Verification.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb

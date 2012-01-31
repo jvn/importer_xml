@@ -1,21 +1,72 @@
-<h1>Listing verifications</h1>
+<h1>Listing leads</h1>
 
 <table>
   <tr>
+    <th>Firmanavn</th>
+    <th>Adresse</th>
+    <th>Postnr</th>
+    <th>Telefon</th>
+    <th>Primar branche</th>
+    <th>E-mail</th>
+    <th>Tilladelse til</th>
+    <th>Antal tilladelser</th>
+    <th>Dtl regioner</th>
+    <th>Antal biler</th>
+    <th>Antal chaufforer</th>
+    <th>Kunde</th>
+    <th>Konkurrent</th>
+    <th>Dorcanvas</th>
+    <th>Telefoncanvas ego</th>
+    <th>Telefoncanvas (outsourcet)</th>
+    <th>M1 kontakt etableret</th>
+    <th>M2 mode booket</th>
+    <th>M3 mode gennemfort</th>
+    <th>M4 aftale indgaet</th>
+    <th>M5 deltager booket</th>
+    <th>Milepalsstatus</th>
+    <th>Naste kontakt</th>
+    <th>Kommentarer og noter</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
 
-<% @verifications.each do |verification| %>
+<% @verifications.each do |lead| %>
   <tr>
-    <td><%= link_to 'Show', verification %></td>
-    <td><%= link_to 'Edit', edit_verification_path(verification) %></td>
-    <td><%= link_to 'Destroy', verification, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= lead.Firmanavn %></td>
+    <td><%= lead.Adresse %></td>
+    <td><%= lead.Postnr %></td>
+    <td><%= lead.Telefon %></td>
+    <td><%= lead.Primar_branche %></td>
+    <td><%= lead.Email %></td>
+    <td><%= lead.Tilladelse_til %></td>
+    <td><%= lead.Antal_tilladelser %></td>
+    <td><%= lead.DTL_Regioner %></td>
+    <td><%= lead.Antal_biler %></td>
+    <td><%= lead.Antal_chaufforer %></td>
+    <td><%= lead.Kunde %></td>
+    <td><%= lead.Konkurrent %></td>
+    <td><%= lead.Dorcanvas %></td>
+    <td><%= lead.Telefoncanvas_EGO %></td>
+    <td><%= lead.Telefoncanvas_outsourcet %></td>
+    <td><%= lead.M1_Kontakt_etableret %></td>
+    <td><%= lead.M2_Mode_booket %></td>
+    <td><%= lead.M3_Mode_gennemfort %></td>
+    <td><%= lead.M4_Aftale_indgaet %></td>
+    <td><%= lead.M5_Deltager_booket %></td>
+    <td><%= lead.Milepalsstatus %></td>
+    <td><%= lead.Naste_kontakt %></td>
+    <td><%= lead.Kommentarer_og_noter %></td>
+    <td><%= link_to 'Show', lead %></td>
+    <td><%= link_to 'Edit', edit_lead_path(lead) %></td>
+    <td><%= link_to 'Destroy', lead, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Verification', new_verification_path %>
+<%= link_to  'accepter', :controller => 'verifications', :action => 'accept'%>
+
+
+<%= link_to 'afvis', :controller => 'verifications', :action => 'afvis' %>
