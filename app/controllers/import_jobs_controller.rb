@@ -3,7 +3,7 @@ class ImportJobsController < ApplicationController
   # GET /import_jobs.json
   def csv
     require 'csv'
-    #@import_job = ImportJob.find_by_id(:params[:id])
+    @import_job = ImportJob.find_by_id(:params[:nyid])
     @Firmanavn = 0
     @Adresse = 1
     @Postnr = 2
